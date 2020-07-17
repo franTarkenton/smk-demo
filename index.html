@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minimal</title>
+        <script src="./scripts/smk.js"></script>
+        <link rel="stylesheet" type="text/css" href="./scripts/style.css"/>
+    </head>
+    <body>
+        <p>hello</p>
+<!--***************************************************************************
+    This example shows a minimal SMK application.
+
+    The only parameter required by SMK.INIT() is 'containerSel', to set the 
+    element id that will contain the map.
+-->
+        <div id="smk-map-frame"></div>
+        <script>
+            SMK.INIT( {
+                id: 'map',
+                containerSel: "#smk-map-frame",
+                config: [ 
+                    // literal configuration
+                    { tools: [ { type: 'markup', enabled: false } ] },
+                    // URL to JSON object
+                    './scripts/default-config.json', 
+                    // SMK command
+                    'theme=alpha',
+                    // prefix for URL parameter commands
+                    '?smk-' 
+                ]
+            } )
+            .then( function ( smk ) {
+                dialog( [ 'SMK is initialized and ready' ] )
+            } )
+        </script>
+<!--***************************************************************************-->
+    </body>
+</html>
